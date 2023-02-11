@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieparser = require("cookie-parser");
 const app = express();
 const port = 3000;
 
@@ -11,6 +12,7 @@ connect();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // form data 를 받기 위한 부분
+app.use(cookieparser());
 app.use(express.static("assets")); // front end file asset 확인
 app.use("/api", [goodsRouter, cartsRouter, usersRouter, authRouter]);
 
