@@ -15,7 +15,7 @@ router.post("/auth", async (req, res) => {
     return;
   }
   const token = jwt.sign({ userId: user.userId }, "secret-key");
-  res.cookie("auth", `Bearer ${token}`); // bearer type - jwt type
+  res.cookie("Authorization", `Bearer ${token}`); // bearer type - jwt type
   res.status(200).json({ token });
 });
 

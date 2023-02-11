@@ -2,12 +2,12 @@ const jwt = require("jsonwebtoken");
 const User = require("../schemas/user");
 
 module.exports = async (req, res, next) => {
-  const { authorization } = req.cookies;
+  const { Authorization } = req.cookies;
   // bearer asdasd.asdsad.sad
   // undefined.split -> error
   // authoriziton cookie 가 존재하지 않았을 때를 대비
   // 왼쪽 값이 null 일때 오른쪽 값(빈문자열)로 대치해줍니다. ?? = null 병합 연산자
-  const [authType, authToken] = (authorization ?? "").split(" ");
+  const [authType, authToken] = (Authorization ?? "").split(" ");
   //authtype === bearer 인지 확인
   //authtoken 검증
   if (authType !== "Bearer" || !authToken) {
