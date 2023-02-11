@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userSchema = require("../schemas/user");
-
+//sign up
 router.post("/users", async (req, res) => {
   const { email, nickname, password, confirmPassword } = req.body;
   if (password !== confirmPassword) {
