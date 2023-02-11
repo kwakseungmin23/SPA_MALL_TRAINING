@@ -14,7 +14,6 @@ module.exports = async (req, res, next) => {
     res.status(400).json({ err: "로그인 후에 이용 가능" });
     return;
   }
-
   //jwt validation (검증)
   //1. authToken 만료 확인 (.verify)
   //2. 서버가 발급 토큰이 맞는지 검증 (.verify)
